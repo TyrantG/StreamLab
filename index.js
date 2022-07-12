@@ -88,7 +88,8 @@ const sectionView = () => {
       break
     }
     case 2: {
-      let channels = fetch("https://ghproxy.com/https://raw.githubusercontent.com/TyrantG/StreamLab/main/data/channels.json")
+      let channels_json = fetch("https://ghproxy.com/https://raw.githubusercontent.com/TyrantG/StreamLab/main/data/channels.json")
+      let channels = JSON.parse(channels_json)
       channels.forEach(channel => {
         d.push({
           title: channel.title,
