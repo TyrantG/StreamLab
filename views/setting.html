@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+    <title>StreamLab Setting</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-plus/dist/index.css" />
+    <style>
+        html, body {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+        }
+        .setting-form {
+            padding: 16px 24px;
+        }
+        .setting-save-flex {
+            display: flex;
+            margin: 32px 0;
+            width: 100%;
+            flex-direction: row;
+            justify-content: center;
+        }
+        .setting-save-flex .setting-save {
+            width: 72%;
+        }
+    </style>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/element-plus"></script>
+</head>
+<body>
+<div id="app">
+    <div class="setting-form">
+        <el-form label-position="top">
+            <el-form-item label="选中标签颜色">
+                <el-color-picker v-model="config.selectColor" />
+            </el-form-item>
+        </el-form>
+        <div class="setting-save-flex">
+            <el-button class="setting-save" type="primary" round @click="saveConfig">保存修改</el-button>
+        </div>
+    </div>
+</div>
+<script>
+  const config = JSON.parse(fba.getVar('StreamLab.config'))
+  const App = {
+    data() {
+      return {
+        config,
+      };
+    },
+    methods: {
+      saveConfig() {
+        fba.writeFile('hiker://files/rules/TyrantG/StreamLab/data/setting.json', JSON.stringify(this.config))
+        fba.refreshPage(true)
+      }
+    },
+  };
+  const app = Vue.createApp(App);
+  app.use(ElementPlus);
+  app.mount("#app");
+</script>
+</body>
+</html>

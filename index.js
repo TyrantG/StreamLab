@@ -55,9 +55,10 @@ const sectionView = () => {
     }
     case 2: {
       d.push({
-        url: getPath('hiker://files/rules/TyrantG/StreamLab/settings/release/index.html'),
+        url: 'file:///storage/emulated/0/Android/data/com.example.hikerview/files/Documents/rules/TyrantG/StreamLab/settings/release/index.html',
         col_type: 'x5_webview_single',
-        desc: '480&&list',
+        desc: '100%&&float',
+        // desc: '480&&list',
       })
       break
     }
