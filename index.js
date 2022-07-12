@@ -64,7 +64,7 @@ const tabBarView = () => {
 const sectionView = () => {
   switch (parseInt(tabKey)) {
     case 0: {
-      const channels = getAllFilesByDir('channels')
+      let channels = getAllFilesByDir('channels')
       if (channels.length > 0) {
 
       } else {
@@ -88,7 +88,7 @@ const sectionView = () => {
       break
     }
     case 2: {
-      const channels = fetch("https://ghproxy.com/https://raw.githubusercontent.com/TyrantG/StreamLab/main/data/channels.json")
+      let channels = fetch("https://ghproxy.com/https://raw.githubusercontent.com/TyrantG/StreamLab/main/data/channels.json")
       channels.forEach(channel => {
         d.push({
           title: channel.title,
