@@ -6,6 +6,7 @@ import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 
 export default defineConfig({
+  base: './',
   plugins: [
     vue(),
     AutoImport({
@@ -15,12 +16,6 @@ export default defineConfig({
       resolvers: [ElementPlusResolver()],
     }),
   ],
-  resolve: {
-    alias: {
-      '@': resolve(__dirname, 'src'),
-    },
-    dedupe: ['vue'],
-  },
   server:{
     host: '0.0.0.0',
   },
@@ -35,5 +30,11 @@ export default defineConfig({
         assetFileNames: `assets/[name].[ext]`,
       }
     }
+  },
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, 'src'),
+    },
+    dedupe: ['vue'],
   },
 })

@@ -55,7 +55,7 @@ const sectionView = () => {
     }
     case 2: {
       d.push({
-        url: 'http://192.168.5.188:3000',
+        url: getPath('hiker://files/rules/TyrantG/StreamLab/settings/release/index.html'),
         col_type: 'x5_webview_single',
         desc: '480&&list',
       })
