@@ -1,6 +1,6 @@
 // Data Init
 const empty = 'hiker://empty'
-const selectColor = '#FF0000'
+const selectColor = config.selectColor
 const d = []
 
 // Constant

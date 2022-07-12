@@ -15,6 +15,9 @@ const {
         <el-color-picker v-model="selectColor" />
       </el-form-item>
     </el-form>
+    <div class="setting-save-flex">
+      <el-button class="setting-save" type="primary" round @click="settingStore.saveConfig">保存修改</el-button>
+    </div>
   </div>
 </template>
 
@@ -25,7 +28,17 @@ html, body {
   padding: 0;
   user-select: none;
   .setting-form {
-    padding: 16px 12px;
+    padding: 16px 24px;
+  }
+  .setting-save-flex {
+    display: flex;
+    margin: 32px 0;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    .setting-save {
+      width: 72%;
+    }
   }
 }
 </style>

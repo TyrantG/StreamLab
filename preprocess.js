@@ -2,12 +2,13 @@ const REMOTE_URL = "https://ghproxy.com/https://raw.githubusercontent.com/Tyrant
 const LOCAL_URL = "hiker://files/rules/TyrantG/StreamLab/"
 
 let settingData
-if (fileExist(LOCAL_URL+'data/setting.json') && request(LOCAL_URL+'data/setting.json')) {
+if (! request(LOCAL_URL+'data/setting.json')) {
   settingData = request(LOCAL_URL+'data/setting.json')
-} else {
-  settingData = request(REMOTE_URL+'data/setting.json')
+  writeFile(LOCAL_URL+'data/setting.json', fetch(REMOTE_URL+'data/setting.json'))
 }
 
-initConfig(
-    JSON.parse(settingData)
-)
+const setting_json = request(LOCAL_URL+'data/setting.json')
+putVar('StreamLab.config', setting_json)
+const setting = JSON.parse(setting_json)
+
+initConfig(setting)
